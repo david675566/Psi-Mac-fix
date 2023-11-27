@@ -11,6 +11,7 @@ package vazkii.psi.client.core.handler;
 import com.google.common.io.CharStreams;
 import com.mojang.blaze3d.systems.RenderSystem;
 
+import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.ARBFragmentShader;
 import org.lwjgl.opengl.ARBShaderObjects;
 import org.lwjgl.opengl.ARBVertexShader;
@@ -80,9 +81,17 @@ public final class ShaderHandler {
 	}
 
 	public static boolean canUseShaders() {
-		RenderSystem.assertOnRenderThread();
-		return ConfigHandler.CLIENT.useShaders.get() && ((GL.getCapabilities().OpenGL14 && (GL.getCapabilities().GL_ARB_framebuffer_object || GL.getCapabilities().GL_EXT_framebuffer_object || GL.getCapabilities().OpenGL30))
-				&& (GL.getCapabilities().OpenGL21 || GL.getCapabilities().GL_ARB_fragment_shader && GL.getCapabilities().GL_ARB_fragment_shader && GL.getCapabilities().GL_ARB_shader_objects));
+		return false;
+		// RenderSystem.assertOnRenderThread();
+		// return ConfigHandler.CLIENT.useShaders.get() &&
+		// ((GL.getCapabilities().OpenGL14 &&
+		// (GL.getCapabilities().GL_ARB_framebuffer_object ||
+		// GL.getCapabilities().GL_EXT_framebuffer_object ||
+		// GL.getCapabilities().OpenGL30))
+		// && (GL.getCapabilities().OpenGL21 ||
+		// GL.getCapabilities().GL_ARB_fragment_shader &&
+		// GL.getCapabilities().GL_ARB_fragment_shader &&
+		// GL.getCapabilities().GL_ARB_shader_objects));
 	}
 
 	private static int createProgram(String s, int sides) {
